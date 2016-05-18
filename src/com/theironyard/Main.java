@@ -38,20 +38,20 @@ public class Main {
                      System.out.println("Please take your money.");
                  }
 
+                 System.out.println("Would you like to complete another transaction? (Y / N)");
+                 String canContinue = scanner.nextLine();
+
+                 if (canContinue.equalsIgnoreCase("N") ){
+                     System.out.println("Thank you please come again.");
+                     break;
+
 
              } else if (numInt == 3) {
                  System.out.println("Thank you please come again.");
 
-                 break;
-
 
              }
-             System.out.println("Would you like to complete another transaction? (Y / N)");
-             String canContinue = scanner.nextLine();
 
-             if (canContinue.equalsIgnoreCase("N") ){
-                 System.out.println("Thank you please come again.");
-                 break;
              }
          }
     }
