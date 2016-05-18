@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Welcome Banker");
+        System.out.println("Welcome to the IronBank");
         System.out.println("What is your name?");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
-        System.out.println("Welcome to IronBank " + name);
+        System.out.println("Greetings " + name);
 
         if (name.isEmpty() ) {
             throw new Exception("Invalid name.");
