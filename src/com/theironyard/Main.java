@@ -1,21 +1,37 @@
 package com.theironyard;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
+    static HashMap<String, Double> accounts = new HashMap();
 
     public static void main(String[] args) throws Exception {
         int numInt;
         while (true) {
             System.out.println("Welcome to the IronBank");
             System.out.println("What is your name?");
-            Scanner scanner = new Scanner(System.in);
             String name = scanner.nextLine();
+            if (!accounts.containsKey(name)) {
+                System.out.println("Invalid account. Would you like to create one? [ Y | N ]");
+                String noAccount = scanner.nextLine();
+
+                if (noAccount.equalsIgnoreCase("N")) {
+                    System.out.println("Thank you Have a good Day.");
+                    continue;
+
+                }
+                accounts.put(name, 100.00);
+
+            }
+
             System.out.println("Greetings " + name);
 
             if (name.isEmpty()) {
                 throw new Exception("Invalid name.");
             }
+
 
             while (true) {
                 System.out.println("What would you like to do: | 1.Check balance | 2.Withdraw funds | 3.Cancel |");
@@ -30,8 +46,9 @@ public class Main {
                     System.out.println("How much would you like to withdraw?");
                     String amount = scanner.nextLine();
                     int numAmount = Integer.valueOf(amount);
+                    Double balance = accounts.get(name);
 
-                    if (numAmount > 100) {
+                    if (numAmount > balance) {
                         throw new Exception("Insufficient Funds.");
                     } else if (numAmount < 100) {
                         System.out.println("Please take your money.");
