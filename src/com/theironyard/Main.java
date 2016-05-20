@@ -34,7 +34,7 @@ public class Main {
 
 
             while (true) {
-                System.out.println("What would you like to do: | 1.Check balance | 2.Withdraw funds | 3.Cancel |");
+                System.out.println("What would you like to do: | 1.Check balance | 2.Withdraw funds | 3.Cancel | 4.Delete Account");
                 String choice = scanner.nextLine();
                 numInt = Integer.valueOf(choice);
 
@@ -63,13 +63,23 @@ public class Main {
 
                     }
 
-                } else if (numInt == 3) {
+                }
+
+                else if (numInt == 3) {
                     System.out.println("Thank you please come again.");
 
                     break;
+                }
 
+                else if (numInt == 4) {
+                    accounts.remove(name);
+                    System.out.println("We are sorry to see you go.");
+                    System.out.println("Thank you for your Business.");
 
-                } else {
+                    break;
+                }
+
+                else {
                     System.out.println("Invalid Entry.");
                 }
             }
